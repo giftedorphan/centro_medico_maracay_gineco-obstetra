@@ -1,0 +1,5 @@
+== CMM-Gineco-obstetra
+
+This project goal is to improve the patient-doctor experience.
+
+For more information please refer to our {wiki}[https://github.com/giftedorphan/centro_medico_maracay_gineco-obstetra/wiki]
