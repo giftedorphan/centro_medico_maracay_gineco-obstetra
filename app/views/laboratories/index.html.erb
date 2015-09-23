@@ -1,0 +1,56 @@
+<div class="wrapper">
+  <div class="col-md-12">
+    <h1 class="first_title">Listado de Laboratorios</h1>
+  </div>
+
+  <div class="col-md-12 client-square-div">
+    <div class="col-md-12 col-md-push-1">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>HB</th>
+            <th>HTC</th>
+            <th>VDRL</th>
+            <th>Glicemia</th>
+            <th>Orina</th>
+            <th>Heces</th>
+          </tr>
+        </thead>
+        <tbody >
+          <% @laboratories.each do |laboratory| %>
+            <tr data-link="<%= edit_patient_laboratory_path(:patient_id => current_patient, :laboratory_id => laboratory) %>" class="data-row">
+              <td class="col-md-2"> <%= laboratory.fecha.present? ? laboratory.fecha.strftime("%d-%m-%Y") : 'Sin Fecha' %> </td>
+              <td class="col-md-1"> <%= laboratory.hb %> </td>
+              <td class="col-md-1"> <%= laboratory.htc %> </td>
+              <td class="col-md-1"> <%= laboratory.vdrl %> </td>
+              <td class="col-md-1"> <%= laboratory.glicemia %> </td>
+              <td class="col-md-1"> <%= laboratory.orina %> </td>
+              <td class="col-md-1"> <%= laboratory.heces %> </td>
+              <td class="col-md-2">
+                <%= link_to 'Eliminar Laboratorio', patient_laboratory_path(patient_id: current_patient, laboratory_id: laboratory.id), :method => 'delete', data: { confirm: '¿Estas seguro?' }, :class => 'btn btn-danger btn-sm' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <br>
+
+  <div class="col-md-12 center-div">
+    <%= will_paginate @patients, :next_label => 'Siguiente', :previous_label => 'Anterior', renderer: BootstrapPagination::Rails %>
+  </div>
+
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Agregar Laboratorio', new_patient_laboratory_path(:patient_id => current_patient), {class: 'btn btn-primary btn-block'} %>
+  </div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Volver', patient_path, {class: 'btn btn-primary btn-block'} %>
+  </div>
+</div>

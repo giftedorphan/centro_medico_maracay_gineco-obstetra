@@ -1,0 +1,93 @@
+<div class="wrapper">
+  <div class="col-md-12 space"></div>
+  <div class="col-md-12">
+    <h1 class="first_title">
+      Informacion de - <b><%= @patient.nombre %> <%= @patient.apellido %></b>
+    </h1>
+  </div>
+
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-12 space">
+    <div class="col-md-3 col-md-push-1">
+      <div class="col-md-12">
+        <p class="label-tag"> Fecha: </p>
+      </div>
+      <div class="col-md-12">
+        <input class="custom-datepicker form-control center_input_text" type="text" placeholder="DD/MM/YYYY" readonly='true' id="fecha" disabled='disabled' value=<%= if @laboratory.fecha.present?; @laboratory.fecha.strftime("%d-%m-%Y"); end %>>
+      </div>
+    </div>
+    <div class="col-md-3 col-md-push-2">
+      <div class="col-md-12">
+        <p class="label-tag"> HB: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @laboratory.hb %> </p>
+      </div>
+    </div>
+    <div class="col-md-3 col-md-push-3">
+      <div class="col-md-12">
+        <p class="label-tag"> HTC: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @laboratory.htc %> </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 space">
+    <div class="col-md-3 col-md-push-1">
+      <div class="col-md-12">
+        <p class="label-tag"> VDRL: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @laboratory.vdrl %> </p>
+      </div>
+    </div>
+    <div class="col-md-3 col-md-push-2">
+      <div class="col-md-12">
+        <p class="label-tag"> Glicemia: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @laboratory.glicemia %> </p>
+      </div>
+    </div>
+    <div class="col-md-3 col-md-push-3">
+      <div class="col-md-12">
+        <p class="label-tag"> Orina: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @laboratory.orina %> </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 space">
+    <div class="col-md-3 col-md-push-1">
+      <div class="col-md-12">
+        <p class="label-tag"> Heces: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @laboratory.heces %> </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 space"></div>
+  <div class="col-md-12 space"></div>
+  <div class="col-md-12 space"></div>
+  <div class="col-md-12 space"></div>
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Editar', edit_patient_laboratory_path(:patient_id => current_patient, :laboratory_id => @laboratory.id), {class: 'btn btn-primary btn-block'} %>
+  </div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Volver', patient_laboratories_path, {class: 'btn btn-primary btn-block'} %>
+  </div>
+
+  <div class="col-md-8 col-md-push-2 space">
+    <%= link_to 'Eliminar Laboratorio', patient_laboratory_path(patient_id: @patient.id, laboratory_id: @laboratory.id), :method => 'delete', data: { confirm: '¿Estas seguro?' }, :class => 'btn btn-danger btn-block' %>
+  </div>
+</div>
