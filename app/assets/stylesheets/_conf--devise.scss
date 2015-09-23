@@ -1,0 +1,47 @@
+.authform {
+  background-color: LightGray;
+  padding: 1.4em 1.4em 1.4em 1.4em;
+  width: 35.714285714em;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.input-size {
+  width: 90%;
+}
+
+.left-margin {
+  margin: 0 0 0 10%;
+}
+
+.button {
+  width: 50%;
+  display:block;
+  margin:0 auto;
+}
+
+.checkbox {
+  padding: 0 0 0 4%;
+  display:block;
+  margin:0 auto 0 auto;
+}
+
+@media screen and (max-width: 650px) {
+  body {
+    background-color: LightGray;
+  }
+
+  .authform {
+    width: 100%;
+  }
+
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+  }
+}
