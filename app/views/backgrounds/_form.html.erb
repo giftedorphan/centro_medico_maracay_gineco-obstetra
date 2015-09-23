@@ -1,0 +1,110 @@
+<%= simple_form_for(@patient) do |q| %>
+  <%= q.simple_fields_for :background do |f| %>
+    <%= f.error_notification %>
+
+    <div class="col-md-12">
+      <h1 class="first_title"> Antecedentes Ginero-Obstetrico </h1>
+    </div>
+
+    <div class="col-md-12">
+      <div class="col-md-3 col-md-push-1">
+        <%= f.input :menarquia %>
+      </div>
+      <div class="col-md-3 col-md-push-2">
+        <%= f.input :reglas %>
+      </div>
+      <div class="col-md-3 col-md-push-3">
+        <%= f.input :gesta %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="col-md-3 col-md-push-1">
+        <%= f.input :vivos %>
+      </div>
+      <div class="col-md-3 col-md-push-2">
+        <%= f.input :muertos %>
+      </div>
+      <div class="col-md-3 col-md-push-3">
+        <%= f.input :paridad %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="col-md-3 col-md-push-1">
+        <%= f.input :abortos %>
+      </div>
+      <div class="col-md-3 col-md-push-2">
+        <%= f.input :mola %>
+      </div>
+      <div class="col-md-3 col-md-push-3">
+        <%= f.input :foceps %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="col-md-3 col-md-push-1">
+        <%= f.input :cesareas %>
+      </div>
+      <div class="col-md-3 col-md-push-2">
+        <%= f.input :gemelares %>
+      </div>
+      <div class="col-md-3 col-md-push-3">
+        <%= f.input :podalicos %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="col-md-3 col-md-push-1">
+        <%= f.input :prematuros %>
+      </div>
+      <div class="col-md-3 col-md-push-2">
+        <%= f.input :pmf %>
+      </div>
+    </div>
+
+    <div class="col-md-9 col-md-push-2 col-md-pull-1 space">
+      <%= f.input :otros %>
+    </div>
+
+    <div class="col-md-12">
+      <h1 class="first_title"> Inmuno - Hematologia </h1>
+    </div>
+
+    <div class="col-md-12">
+      <div class="col-md-3 col-md-push-3">
+        <%= f.input :grupo_sangre_embarazada %>
+      </div>
+      <div class="col-md-3 col-md-push-4">
+        <%= f.input :rh_embarazada %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="col-md-3 col-md-push-3">
+        <%= f.input :grupo_sangre_esposo %>
+      </div>
+      <div class="col-md-3 col-md-push-4">
+        <%= f.input :rh_esposo %>
+      </div>
+    </div>
+
+    <div class="col-md-7 col-md-push-3 col-md-pull-2">
+      <%= f.input :toxoplasmosis %>
+    </div>
+
+    <div class="col-md-12 space">
+      <div class="col-md-2 col-md-push-3">
+        <%= f.input :sensibilizacion,
+            :as => :select,
+            :collection => [['Si',true], ['No',false]],
+            :include_blank => false,
+            :label => "Sensibilizacion" %>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-md-push-2 center-div">
+      <%= f.button :submit, ( f.object.new_record? ? "Crear" : "Actualizar"), {class: 'btn btn-primary btn-block'} %>
+    </div>
+  <% end %>
+<% end %>
