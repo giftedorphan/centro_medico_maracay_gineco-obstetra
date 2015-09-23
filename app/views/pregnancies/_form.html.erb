@@ -1,0 +1,27 @@
+<%= simple_form_for([@patient,@pregnancy]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="col-md-12 space">
+    <div class="col-md-3 col-md-push-1">
+      <%= f.input :status,
+            :as => :select,
+            :collection => [['Activo',true], ['Pasado',false]],
+            :include_blank => false,
+            :label => "Status" %>
+    </div>
+    <div class="col-md-3 col-md-push-2">
+      <label>Fecha Ultima Regla</label>
+      <input class="custom-datepicker form-control center_input_text" type="text" placeholder="DD/MM/YYYY" readonly='true' name="pregnancy[fur]" id="pregnancy_fur" value=<%= if @pregnancy.fur.present?; @pregnancy.fur.strftime("%d-%m-%Y"); end %>>
+    </div>
+    <div class="col-md-3 col-md-push-3">
+      <label>Fecha Probable Parto</label>
+      <input class="custom-datepicker form-control center_input_text" type="text" placeholder="DD/MM/YYYY" readonly='true' name="pregnancy[fpp]" id="pregnancy_fpp" value=<%= if @pregnancy.fpp.present?; @pregnancy.fpp.strftime("%d-%m-%Y"); end %>>
+    </div>
+  </div>
+
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-4 col-md-push-2 center-div">
+    <%= f.button :submit, ( f.object.new_record? ? "Crear" : "Actualizar"), {class: 'btn btn-primary btn-block'} %>
+  </div>
+<% end %>

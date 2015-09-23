@@ -1,0 +1,53 @@
+<div class="wrapper">
+  <div class="col-md-12 space"></div>
+  <div class="col-md-12">
+    <h1 class="first_title">
+      Informacion del Embarazo
+    </h1>
+  </div>
+
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-12 space">
+    <div class="col-md-3 col-md-push-1">
+      <div class="col-md-12">
+        <p class="label-tag"> Estado: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @pregnancy.status == true ? 'Activo' : 'Pasado' %></p>
+      </div>
+    </div>
+    <div class="col-md-3 col-md-push-2">
+      <div class="col-md-12">
+        <p class="label-tag"> Fecha: </p>
+      </div>
+      <div class="col-md-12">
+        <input class="custom-datepicker form-control center_input_text" type="text" placeholder="DD/MM/YYYY" readonly='true' id="fur" disabled='disabled' value=<%= if @pregnancy.fur.present?; @pregnancy.fur.strftime("%d-%m-%Y"); end %>>
+      </div>
+    </div>
+    <div class="col-md-3 col-md-push-3">
+      <div class="col-md-12">
+        <p class="label-tag"> Fecha: </p>
+      </div>
+      <div class="col-md-12">
+        <input class="custom-datepicker form-control center_input_text" type="text" placeholder="DD/MM/YYYY" readonly='true' id="fpp" disabled='disabled' value=<%= if @pregnancy.fpp.present?; @pregnancy.fpp.strftime("%d-%m-%Y"); end %>>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 space"></div>
+  <div class="col-md-12 space"></div>
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Editar', edit_patient_pregnancy_path(:patient_id => current_patient, :pregnancy_id => @pregnancy.id), {class: 'btn btn-primary btn-block'} %>
+  </div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Volver', patient_pregnancies_path, {class: 'btn btn-primary btn-block'} %>
+  </div>
+
+  <div class="col-md-8 col-md-push-2 space">
+    <%= link_to 'Volver', patient_pregnancies_path, {class: 'btn btn-primary btn-block'} %>
+  </div>
+</div>

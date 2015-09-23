@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="col-md-12 space">
+    <h1 class="first_title">
+      Agregar Nuevo Embarazo
+    </h1>
+  </div>
+
+  <%= render 'form' %>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%=
+      link_to_if(current_patient.pregnancies.empty?, 'Volver', patient_path(current_patient), {class: 'btn btn-primary btn-block'}) do
+        link_to 'Volver', patient_pregnancies_path, {class: 'btn btn-primary btn-block'}
+      end
+    %>
+  </div>
+
+  <div class="col-md-12 space"></div>
+</div>

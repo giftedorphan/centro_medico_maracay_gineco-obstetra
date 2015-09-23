@@ -1,0 +1,64 @@
+<div class="wrapper">
+  <div class="col-md-12">
+    <h1 class="first_title">Listado de Embarazos</h1>
+  </div>
+
+  <div class="col-md-12 client-square-div">
+    <div class="col-md-12 col-md-push-1">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>FUR</th>
+            <th>FPP</th>
+            <th>Control</th>
+            <th>Imagenes</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody >
+          <% @pregnancies.each do |pregnancy| %>
+            <tr data-link="<%= edit_patient_pregnancy_path(:patient_id => current_patient, :pregnancy_id => pregnancy) %>" class="data-row">
+              <td class="col-md-1"> <%= pregnancy.status == true ? 'Activo' : 'Pasado' %> </td>
+              <td class="col-md-2"> <%= pregnancy.fur.present? ? control.fur.strftime("%d-%m-%Y") : 'Sin Fecha' %> </td>
+              <td class="col-md-3"> <%= pregnancy.fpp.present? ? control.fpp.strftime("%d-%m-%Y") : 'Sin Fecha' %> </td>
+              <td class="col-md-2">
+                <%=
+                    link_to_if(pregnancy.controls.empty?, 'Control de Embarazo', new_patient_pregnancy_control_path(:pregnancy_id => pregnancy), {class: 'btn btn-success btn-sm'}) do
+                      link_to 'Control de Embarazo', patient_pregnancy_controls_path(:pregnancy_id => pregnancy), {class: 'btn btn-success btn-sm'}
+                    end
+                %>
+              </td>
+              <td class="col-md-2">
+                <%=
+                    link_to_if(pregnancy.images.empty?, 'Imagenes', new_patient_pregnancy_image_path(:pregnancy_id => pregnancy), {class: 'btn btn-success btn-sm'}) do
+                      link_to 'Imagenes', patient_pregnancy_images_path(:pregnancy_id => pregnancy), {class: 'btn btn-success btn-sm'}
+                    end
+                %>
+              </td>
+              <td class="col-md-2">
+                <%= link_to 'Eliminar Embarazo', patient_pregnancy_path(patient_id: current_patient, pregnancy_id: pregnancy.id), :method => 'delete', data: { confirm: '¿Estas seguro?' }, :class => 'btn btn-danger btn-sm' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="col-md-12 center-div">
+    <%= will_paginate @patients, :next_label => 'Siguiente', :previous_label => 'Anterior', renderer: BootstrapPagination::Rails %>
+  </div>
+
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Agregar Embarazo', new_patient_pregnancy_path, {class: 'btn btn-primary btn-block'} %>
+  </div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Volver', patient_path, {class: 'btn btn-primary btn-block'} %>
+  </div>
+</div>
