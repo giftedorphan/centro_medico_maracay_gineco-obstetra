@@ -1,0 +1,44 @@
+<%= simple_form_for([@patient,@pregnancy,@control]) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="col-md-12">
+      <div class="col-md-3 col-md-push-1">
+        <label>Fecha</label>
+        <input class="custom-datepicker form-control center_input_text" type="text" placeholder="DD/MM/YYYY" readonly='true' name="control[fecha]" id="control_fecha" value=<%= if @control.fecha.present?; @control.fecha.strftime("%d-%m-%Y"); end %>>
+      </div>
+      <div class="col-md-3 col-md-push-2">
+        <%= f.input :eg %>
+      </div>
+      <div class="col-md-3 col-md-push-3">
+        <%= f.input :au %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="col-md-3 col-md-push-1">
+        <%= f.input :ta %>
+      </div>
+      <div class="col-md-3 col-md-push-2">
+        <%= f.input :peso %>
+      </div>
+      <div class="col-md-3 col-md-push-3">
+        <%= f.input :present %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="col-md-3 col-md-push-1">
+        <%= f.input :ff %>
+      </div>
+      <div class="col-md-3 col-md-push-2">
+        <%= f.input :edemas %>
+      </div>
+    </div>
+
+    <div class="col-md-12 space"></div>
+    <div class="col-md-12 space"></div>
+
+    <div class="col-md-4 col-md-push-2 center-div">
+      <%= f.button :submit, ( f.object.new_record? ? "Crear" : "Actualizar"), {class: 'btn btn-primary btn-block'} %>
+    </div>
+<% end %>

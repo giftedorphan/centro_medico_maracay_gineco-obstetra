@@ -1,0 +1,59 @@
+
+<div class="wrapper">
+  <div class="col-md-12">
+    <h1 class="first_title">Controles del Embarazo</h1>
+  </div>
+
+  <div class="col-md-12 client-square-div">
+    <div class="col-md-12 col-md-push-1">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>EG</th>
+            <th>AU</th>
+            <th>TA</th>
+            <th>Peso</th>
+            <th>Present</th>
+            <th>FF</th>
+            <th>Edemas</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @controls.each do |control| %>
+            <tr data-link="<%= edit_patient_pregnancy_control_path(:patient_id => current_patient, :pregnancy_id => current_pregnancy, :control_id => control) %>" class="data-row">
+              <td class="col-md-2"> <%= control.fecha.present? ? control.fecha.strftime("%d-%m-%Y") : 'Sin Fecha' %> </td>
+              <td class="col-md-1"> <%= control.eg %> </td>
+              <td class="col-md-1"> <%= control.au %> </td>
+              <td class="col-md-1"> <%= control.ta %> </td>
+              <td class="col-md-1"> <%= control.peso %> </td>
+              <td class="col-md-1"> <%= control.present %> </td>
+              <td class="col-md-1"> <%= control.ff %> </td>
+              <td class="col-md-1"> <%= control.edemas %> </td>
+              <td class="col-md-2">
+                <%= link_to 'Eliminar Control', patient_pregnancy_control_path(patient_id: current_patient, pregnancy_id: current_pregnancy, control_id: control), :method => 'delete', data: { confirm: '¿Estas seguro?' }, :class => 'btn btn-danger btn-block' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="col-md-12 center-div">
+    <%= will_paginate @patients, :next_label => 'Siguiente', :previous_label => 'Anterior', renderer: BootstrapPagination::Rails %>
+  </div>
+
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Agregar Control', new_patient_pregnancy_control_path, {class: 'btn btn-primary btn-block'} %>
+  </div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Volver', patient_pregnancies_path, {class: 'btn btn-primary btn-block'} %>
+  </div>
+</div>

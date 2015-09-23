@@ -1,0 +1,93 @@
+<div class="wrapper">
+  <div class="col-md-12">
+    <h1 class="first_title">
+      Cotrol del Embarazo- <b><%= @patient.nombre %> <%= @patient.apellido %></b>
+    </h1>
+  </div>
+
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-12 space">
+    <div class="col-md-3 col-md-push-1">
+      <label>Fecha</label>
+      <input class="custom-datepicker form-control center_input_text" type="text" placeholder="DD/MM/YYYY" readonly='true' name="control[fecha]" id="control_fecha" disabled='disabled' value=<%= if @control.fecha.present?; @control.fecha.strftime("%d-%m-%Y"); end %>>
+    </div>
+    <div class="col-md-3 col-md-push-2">
+      <div class="col-md-12">
+        <p class="label-tag"> EG: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @control.eg %> </p>
+      </div>
+    </div>
+    <div class="col-md-3 col-md-push-3">
+      <div class="col-md-12">
+        <p class="label-tag"> AU: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @control.au %> </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-12 space">
+    <div class="col-md-3 col-md-push-1">
+      <div class="col-md-12">
+        <p class="label-tag"> TA: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @control.ta %> </p>
+      </div>
+    </div>
+    <div class="col-md-3 col-md-push-2">
+      <div class="col-md-12">
+        <p class="label-tag"> Peso: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @control.peso %> </p>
+      </div>
+    </div>
+    <div class="col-md-3 col-md-push-3">
+      <div class="col-md-12">
+        <p class="label-tag"> Present: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @control.present %> </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-12 space">
+    <div class="col-md-3 col-md-push-1">
+      <div class="col-md-12">
+        <p class="label-tag"> FF: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @control.ff %> </p>
+      </div>
+    </div>
+    <div class="col-md-3 col-md-push-2">
+      <div class="col-md-12">
+        <p class="label-tag"> Edemas: </p>
+      </div>
+      <div class="col-md-12">
+        <p class="client-data"> <%= @control.edemas %> </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 space"></div>
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Editar', edit_patient_pregnancy_control_path(:patient_id => current_patient, :pregnancy_id => @pregnancy, :control_id => @control), {class: 'btn btn-primary btn-block'} %>
+  </div>
+
+  <div class="col-md-4 col-md-push-3 center-div space">
+    <%= link_to 'Volver', patient_pregnancy_controls_path(:patient_id => current_patient, :pregnancy_id => current_pregnancy), {class: 'btn btn-primary btn-block'} %>
+  </div>
+</div>
