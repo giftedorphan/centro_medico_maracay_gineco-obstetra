@@ -13,8 +13,11 @@ gem 'simple_form'
 gem 'mandrill-api'
 gem 'rails-i18n'
 gem 'will_paginate-bootstrap'
+gem 'responders', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
+gem 'carrierwave'
+gem 'rmagick'
 
 group :development do
   gem 'better_errors'
