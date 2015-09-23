@@ -1,0 +1,34 @@
+<%= simple_form_for @patient, html: { multipart: true } do |f| %>
+  <%= f.error_notification %>
+
+  <div class="col-md-6 col-md-push-3 space">
+    <div class= "col-md-12 avatar-ratio space">
+      <% unless @patient.avatar.blank? %>
+        <%= image_tag @patient.avatar_url(:patient_thumb).to_s, {class: "avatar-ratio"} %>
+      <% else %>
+        <div class="image">
+        <%= image_tag("defaultavatar.jpg", {class: "avatar-ratio"}) %>
+        </div>
+      <% end %>
+        <div class="space"></div>
+        <%= f.file_field :avatar %>
+    </div>
+  </div>
+
+  <div class="col-md-5 col-md-push-1">
+    <%= f.input :cedula, :input_html => {:maxlength => 8, :style=> 'width: 120px'}, error: "Debe llenarse" %>
+    <%= f.input :nombre, :input_html => {:style=> 'width: 250px'}, error: "Debe llenarse" %>
+    <%= f.input :apellido, :input_html => {:style=> 'width: 250px'}, error: "Debe llenarse" %>
+    <%= f.input :edad, :input_html => {:maxlength => 2, :style=> 'width: 100px'}, error: "Debe llenarse" %>
+  </div>
+
+  <div class="col-md-7 col-md-push-3">
+    <%= f.input :direccion, error: "Debe llenarse" %>
+  </div>
+
+  <div class="col-md-12 space"></div>
+
+  <div class="col-md-4 col-md-push-2 center-div">
+    <%= f.button :submit, ( f.object.new_record? ? "Crear" : "Actualizar"), {class: 'btn btn-primary btn-block'} %>
+  </div>
+<% end %>

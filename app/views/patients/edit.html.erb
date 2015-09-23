@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="col-md-12">
+    <h1 class="first_title">
+      Editar informacion de - <b><%= current_patient.nombre %> <%= current_patient.apellido %></b>
+    </h1>
+  </div>
+
+  <%= render 'form' %>
+
+  <div class="col-md-4 col-md-push-3 center-div space">
+    <%= link_to 'Volver', patient_path(:patient_id => current_patient), {class: 'btn btn-primary btn-block'} %>
+  </div>
+
+  <div class="col-md-12 space"></div>
+</div>
