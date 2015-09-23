@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="col-md-12">
+    <h1 class="first_title">
+      Agregar Nueva Imagen al Embarazo
+    </h1>
+  </div>
+
+  <%= render 'form' %>
+
+  <div class="col-md-4 col-md-push-3 center-div space">
+    <%=
+      link_to_if(current_pregnancy.images.empty?, 'Volver', patient_pregnancies_path(current_patient), {class: 'btn btn-primary btn-block'}) do
+        link_to 'Volver', patient_pregnancy_images_path, {class: 'btn btn-primary btn-block'}
+      end
+    %>
+  </div>
+
+</div>

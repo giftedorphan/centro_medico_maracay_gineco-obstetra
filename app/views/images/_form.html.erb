@@ -1,0 +1,42 @@
+<%= simple_form_for([@patient,@pregnancy,@image]) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="col-md-8 col-md-push-3 space">
+      <div class= "col-md-12 avatar-ratio space">
+        <% unless @image.imagen.blank? %>
+          <%= image_tag @image.imagen_url(:image_thumb).to_s, {class: "avatar-ratio"} %>
+        <% else %>
+          <div class="image">
+          <%= image_tag("defaultavatar.jpg", {class: "avatar-ratio"}) %>
+          </div>
+        <% end %>
+          <div class="space"></div>
+          <%= f.file_field :imagen %>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-md-pull-1">
+      <div class="col-md-12 space"></div>
+      <div class="col-md-12 space"></div>
+      <div class="col-md-12 space"></div>
+      <div class="col-md-12 space"></div>
+      <div class="col-md-8">
+        <label>Fecha</label>
+        <input class="custom-datepicker form-control center_input_text" type="text" placeholder="DD/MM/YYYY" readonly='true' name="image[fecha]" id="image_fecha" value=<%= if @image.fecha.present?; @image.fecha.strftime("%d-%m-%Y"); end %>>
+      </div>
+    </div>
+
+    <div class="col-md-12 space"></div>
+    <div class="col-md-12 space"></div>
+
+    <div class="col-md-7 col-md-push-3">
+      <%= f.input :descripcion, error: "Debe llenarse" %>
+    </div>
+
+    <div class="col-md-12 space"></div>
+
+    <div class="col-md-4 col-md-push-2 center-div">
+      <%= f.button :submit, ( f.object.new_record? ? "Crear" : "Actualizar"), {class: 'btn btn-primary btn-block'} %>
+    </div>
+
+<% end %>

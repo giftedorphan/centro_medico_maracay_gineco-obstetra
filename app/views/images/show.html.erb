@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <div class="col-md-12">
+    <h1 class="first_title">
+      Imagen del Embarazo
+    </h1>
+  </div>
+
+    <div class="col-md-10 col-md-push-2 space-image-show">
+      <div class= "col-md-12 avatar-ratio space">
+        <% unless @image.imagen.blank? %>
+          <%= image_tag @image.imagen_url(:image_show).to_s %>
+        <% else %>
+          <div class="image">
+          <%= image_tag("defaultavatar.jpg", {class: "avatar-ratio"}) %>
+          </div>
+        <% end %>
+          <div class="space"></div>
+      </div>
+    </div>
+
+    <div class="col-md-5 col-md-push-5">
+      <div class="col-md-8">
+        <label>Fecha</label>
+        <input class="custom-datepicker form-control center_input_text" type="text" placeholder="DD/MM/YYYY" readonly='true' name="image[fecha]" id="image_fecha" value=<%= if @image.fecha.present?; @image.fecha.strftime("%d-%m-%Y"); end %>>
+      </div>
+    </div>
+
+    <div class="col-md-12 space"></div>
+    <div class="col-md-12 space"></div>
+
+    <div class="col-md-7 col-md-push-3">
+      <div class="col-md-7 col-md-push-2">
+        <p class="label-tag"> Descripcion: </p>
+      </div>
+      <div class="col-md-7 col-md-push-2">
+        <p class="client-data"> <%= @image.descripcion %> </p>
+      </div>
+    </div>
+
+        <div class="col-md-12 space"></div>
+<div class="col-md-12 space"></div>
+<div class="col-md-12 space"></div>
+
+  <div class="col-md-4 col-md-push-2 center-div space">
+    <%= link_to 'Editar', edit_patient_pregnancy_image_path(:patient_id => current_patient, :pregnancy_id => @pregnancy, :control_id => @image), {class: 'btn btn-primary btn-block'} %>
+  </div>
+
+  <div class="col-md-4 col-md-push-3 center-div space">
+    <%= link_to 'Volver', patient_pregnancy_images_path(:patient_id => current_patient, :pregnancy_id => current_pregnancy), {class: 'btn btn-primary btn-block'} %>
+  </div>
+</div>
