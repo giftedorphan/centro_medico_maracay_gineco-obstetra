@@ -1,0 +1,22 @@
+$(document).on('ready page:load', function () {
+  $(".background_change").mouseover(function(){
+    $('.background').attr( "src" , "<%= image_path "background_white.png" %>" );
+  });
+  $(".background_change").mouseout(function(){
+    $('.background').attr( "src" , "<%= image_path "background.png" %>" );
+  });
+
+  $(".laboratory_change").mouseover(function(){
+    $('.laboratory').attr( "src" , "<%= image_path "laboratory_white.png" %>" );
+  });
+  $(".laboratory_change").mouseout(function(){
+    $('.laboratory').attr( "src" , "<%= image_path "laboratory.png" %>" );
+  });
+
+  $(".pregnancy_change").mouseover(function(){
+    $('.pregnancy').attr( "src" , "<%= image_path "pregnancy_white.png" %>" );
+  });
+  $(".pregnancy_change").mouseout(function(){
+    $('.pregnancy').attr( "src" , "<%= image_path "pregnancy.png" %>" );
+  });
+});
