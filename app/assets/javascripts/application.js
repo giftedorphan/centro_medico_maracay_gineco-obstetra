@@ -15,14 +15,9 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-datepicker
-//= require bootstrap-datepicker-rails
-//= require customer
-//= require service-company-accessory
-//= require vehicle_insurance-find_user
-//= require vehicle_insurance-date
-//= require vehicle_insurance-coverage
-//= require vehicle_insurance-void_insurance
 //= require jquery-ui/datepicker
+//= require table_tr_click
+//= sidebar_images_change
 //= require_tree .
 
 $(document).on('ready page:load', function () {
