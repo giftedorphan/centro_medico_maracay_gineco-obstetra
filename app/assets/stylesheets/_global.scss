@@ -1,16 +1,10 @@
 html,
 body {
   margin: 0;
-}
-
-html,
-body {
   height: 100%;
   width: 100%;
-}
-
-body {
   font-family: $primary-font;
+  font-size: 16px;
 }
 
 .wrapper {
@@ -44,70 +38,6 @@ p {
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
-}
-
-.sidebar {
-  position:fixed;
-  top: 7%; bottom:0; left:0;
-  width: 12%;
-  background: #f5f5f5;
-  border: 1px solid #e3e3e3;
-  border-radius: 4px;
-  display: block;
-}
-
-.sidebar-elements {
-  position: fixed;
-  top: 10%;
-  left: -1%;
-}
-
-ul.sidebar-elements li{
-  text-align: center;
-  font-weight: bold;
-}
-
-.sidebar-images {
-  width: 100px;
-  height: 150px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: relative;
-  margin: 0 0 70% 0;
-}
-
-.background-image {
-  background-image: image-url("background.png");
-}
-
-.pregnancy-image {
-  background-image: image-url("pregnancy.png");
-}
-
-.laboratory-image {
-  background-image: image-url("laboratory.png");
-}
-
-.sidebar-images:hover {
-  background-color: #000000;
-}
-
-.sidebar-images:hover li{
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-.background-image:hover {
-  background-image: image-url("background_white.png");
-}
-
-.pregnancy-image:hover {
-  background-image: image-url("pregnancy_white.png");
-}
-
-.laboratory-image:hover {
-  background-image: image-url("laboratory_white.png");
 }
 
   .container {
