@@ -1,19 +1,22 @@
 <div class="col-md-2 sidebar">
-  <ul class="sidebar-elements">
-    <%= link_to(patient_background) do %>
-      <div class="sidebar-images background-image">
-        <li>Antecedentes</li>
-      </div>
-    <% end %>
-    <%= link_to(patient_laboratory) do %>
-      <div class="sidebar-images laboratory-image">
-        <li>Laboratorios</li>
-      </div>
-    <% end %>
-    <%= link_to(patient_pregnancy) do %>
-      <div class="sidebar-images pregnancy-image">
-        <li>Embarazos</li>
-      </div>
-    <% end %>
-  </ul>
+  <div class="sidebar-elements">
+    <div class="sidebar-images-container background_change">
+      <%= link_to(patient_background) do %>
+        <p>Antecedentes</p>
+        <%= image_tag("background.png", class: 'img-sidebar background')%>
+      <% end %>
+    </div>
+    <div class="sidebar-images-container laboratory_change">
+      <%= link_to(patient_laboratory) do %>
+        <p>Laboratorios</p>
+        <%= image_tag("laboratory.png", class: 'img-sidebar laboratory')%>
+      <% end %>
+    </div>
+    <div class="sidebar-images-container pregnancy_change">
+      <%= link_to(patient_pregnancy) do %>
+        <p>Embarazos</p>
+        <%= image_tag("pregnancy.png", class: 'img-sidebar pregnancy')%>
+      <% end %>
+    </div>
+  </div>
 </div>
