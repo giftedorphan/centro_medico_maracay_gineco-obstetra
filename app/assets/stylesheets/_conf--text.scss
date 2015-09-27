@@ -1,39 +1,17 @@
 .first_title {
   text-align: center;
-  margin: 0 0 5% 0;
-}
-
-.third_title {
-  text-align: center;
-  margin: 0 0 5% 0;
-}
-
-.label_align_right {
-  text-align: right;
-}
-
-.label_align_left {
-  text-align: left;
+  margin: 1% 0 5% 0;
+  position: relative;
+  left: 6%;
 }
 
 .center_input_text {
   text-align: center;
 }
 
-.left_input_text {
-  text-align: left;
-}
-
-.label_title {
-  font-size: 1.2em;
-}
-.one_line_label {
-  white-space: nowrap;
-}
-
-@media screen and (max-width: 650px) {
-  .first_title {
-    text-align: center;
-    margin: 20% 0 15% 0;
-  }
+.label-tag {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
