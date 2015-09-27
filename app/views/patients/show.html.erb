@@ -5,23 +5,24 @@
     </h1>
   </div>
 
+  <div class="center-content">
   <div class="col-md-6 col-md-push-3 space">
     <div class= "col-md-12 avatar-ratio space">
       <% unless @patient.avatar.blank? %>
-        <%= image_tag @patient.avatar_url(:patient_thumb).to_s, {class: "avatar-ratio"} %>
+        <%= image_tag @patient.avatar_url(:patient_thumb).to_s, {class: "avatar-ratio avatar-patient-show"} %>
       <% else %>
-        <%= image_tag("defaultavatar.jpg", {class: "avatar-ratio"}) %>
+        <%= image_tag("defaultavatar.jpg", {class: "avatar-ratio avatar-patient-show"}) %>
       <% end %>
     </div>
   </div>
 
-    <div class="col-md-6 space">
+    <div class="col-md-6 space data">
       <div class="col-md-12 col-md-push-1 space">
         <div class="col-md-12">
           <p class="label-tag"> Numero de Cedula: </p>
         </div>
         <div class="col-md-12">
-          <p class="client-data"> <%= @patient.cedula %> </p>
+          <p class="data"> <%= @patient.cedula %> </p>
         </div>
       </div>
       <div class="col-md-12 col-md-push-1 space">
@@ -29,7 +30,7 @@
           <p class="label-tag"> Nombre: </p>
         </div>
         <div class="col-md-12">
-          <p class="client-data"> <%= @patient.nombre %> </p>
+          <p class="data"> <%= @patient.nombre %> </p>
         </div>
       </div>
       <div class="col-md-12 col-md-push-1 space">
@@ -37,7 +38,7 @@
           <p class="label-tag"> Apellido: </p>
         </div>
         <div class="col-md-12">
-          <p class="client-data"> <%= @patient.apellido %> </p>
+          <p class="data"> <%= @patient.apellido %> </p>
         </div>
       </div>
       <div class="col-md-12 col-md-push-1 space">
@@ -45,7 +46,7 @@
           <p class="label-tag"> Edad: </p>
         </div>
         <div class="col-md-12">
-          <p class="client-data"> <%= @patient.edad %> </p>
+          <p class="data"> <%= @patient.edad %> </p>
         </div>
       </div>
     </div>
@@ -55,7 +56,7 @@
         <p class="label-tag"> Direccion: </p>
       </div>
       <div class="col-md-7 col-md-push-2">
-        <p class="client-data"> <%= @patient.direccion %> </p>
+        <p class="data"> <%= @patient.direccion %> </p>
       </div>
     </div>
 
@@ -66,13 +67,12 @@
       <%= link_to 'Editar', edit_patient_path(@patient), {class: 'btn btn-primary btn-block'} %>
     </div>
 
-    <div class="col-md-4 col-md-push-3 center-div space">
+    <div class="col-md-4 col-md-push-2 center-div space">
       <%= link_to 'Volver', patients_path, {class: 'btn btn-primary btn-block'} %>
     </div>
 
-    <div class="col-md-12 space"></div>
-
-    <div class="col-md-7 col-md-push-3 space">
+    <div class="col-md-8 col-md-push-2 space">
       <%= link_to 'Eliminar Paciente', patient_path(patient_id: @patient.id), :method => 'delete', data: { confirm: '¿Estas seguro?' }, :class => 'btn btn-danger btn-block' %>
+    </div>
     </div>
 </div>

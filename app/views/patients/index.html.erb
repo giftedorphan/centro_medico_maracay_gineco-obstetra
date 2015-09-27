@@ -3,13 +3,13 @@
     <h1 class="first_title"><b>Listado de Pacientes</b></h1>
   </div>
 
-  <div class="col-md-12 client-square-div">
+  <div class="col-md-12">
     <% @patients.each do |patient| %>
       <div class="col-md-4">
-        <ul class="client-ul client-square-inner-ul">
-          <a href=<%= patient_path(patient) %> class="client-link">
-            <li class="client-square">
-              <div class= "col-md-12 avatar-ratio-index space first_title">
+        <ul class="data-ul">
+          <a href=<%= patient_path(patient) %> class="square-link">
+            <li class="square">
+              <div class= "col-md-12 avatar-ratio-index space avatar_position">
                 <% unless patient.avatar.blank? %>
                   <%= image_tag patient.avatar_url(:patient_index).to_s, {class: "avatar-ratio-index"} %>
                 <% else %>
