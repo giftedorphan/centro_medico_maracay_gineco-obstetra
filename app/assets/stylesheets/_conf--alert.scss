@@ -1,17 +1,7 @@
 .alert {
   position: fixed;
-  top: 7%;
-  left: 20%;
-  right: 20%;
-  max-width: 59.285714286em;
+  top: 6%;
+  left: 5%;
+  width: 100%;
   text-align: center;
-}
-
-@media screen and (max-width: 650px) {
-  .alert {
-    top: 7%;
-    left: -1%;
-    right: -1%;
-    max-width: 46.428571429em;
-  }
 }
