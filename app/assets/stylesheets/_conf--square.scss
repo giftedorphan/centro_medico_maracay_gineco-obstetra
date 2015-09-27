@@ -1,0 +1,31 @@
+.square {
+  border-style: double;
+  border-width: 0.5em;
+  background-color: white;
+  margin-bottom: 20%;
+}
+
+.square:hover {
+  background-color: #005b5b;
+}
+
+a.square-link {
+  color: #005b5b;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+a.square-link:hover {
+  color: #CCFFFF;
+}
+
+.data {
+  font-size: 1.2em;
+  display: inline;
+  width: 45%;
+}
+
+.data-ul:hover a{
+  color: #ffffff;
+  text-decoration: none;
+}
