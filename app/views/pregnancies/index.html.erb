@@ -20,8 +20,8 @@
           <% @pregnancies.each do |pregnancy| %>
             <tr data-link="<%= edit_patient_pregnancy_path(:patient_id => current_patient, :pregnancy_id => pregnancy) %>" class="data-row">
               <td class="col-md-1"> <%= pregnancy.status == true ? 'Activo' : 'Pasado' %> </td>
-              <td class="col-md-2"> <%= pregnancy.fur.present? ? control.fur.strftime("%d-%m-%Y") : 'Sin Fecha' %> </td>
-              <td class="col-md-3"> <%= pregnancy.fpp.present? ? control.fpp.strftime("%d-%m-%Y") : 'Sin Fecha' %> </td>
+              <td class="col-md-2"> <%= pregnancy.fur.present? ? pregnancy.fur.strftime("%d-%m-%Y") : 'Sin Fecha' %> </td>
+              <td class="col-md-3"> <%= pregnancy.fpp.present? ? pregnancy.fpp.strftime("%d-%m-%Y") : 'Sin Fecha' %> </td>
               <td class="col-md-2">
                 <%=
                     link_to_if(pregnancy.controls.empty?, 'Control de Embarazo', new_patient_pregnancy_control_path(:pregnancy_id => pregnancy), {class: 'btn btn-success btn-sm'}) do
